@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Campus Life Planner - Organize your academic tasks and events"
+    />
+    <title>Campus Life Planner</title>
+    <link rel="stylesheet" href="../css/main.css" />
+  </head>
+  <body>
+    <!-- Skip to main content link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header with Navigation -->
+    <header role="banner">
+      <nav role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+          <div class="nav-brand">
+            <h1 class="logo">📅 CampusPlanner</h1>
+
+            <div style="display: flex; align-items: center; gap: 10px">
+              <button
+                id="theme-toggle"
+                class="theme-toggle"
+                aria-label="Toggle theme"
+                title="Toggle dark mode"
+              >
+                🌙
+              </button>
+
+              <button
+                class="nav-toggle"
+                aria-label="Toggle navigation menu"
+                aria-expanded="false"
+              >
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+                <span class="hamburger"></span>
+              </button>
+            </div>
+          </div>
+          <ul class="nav-menu" role="menubar">
+            <li role="none">
+              <a href="./home.html" role="menuitem" class="nav-link">Home</a>
+            </li>
+            <li role="none">
+              <a href="./dashboard.html" role="menuitem" class="nav-link"
+                >Dashboard</a
+              >
+            </li>
+            <li role="none">
+              <a href="./tasks.html" role="menuitem" class="nav-link active"
+                >Tasks</a
+              >
+            </li>
+            <li role="none">
+              <a href="./completed.html" role="menuitem" class="nav-link"
+                >Completed</a
+              >
+            </li>
+            <li role="none">
+              <a href="./timeline.html" role="menuitem" class="nav-link"
+                >Timeline</a
+              >
+            </li>
+            <li role="none">
+              <a href="./settings.html" role="menuitem" class="nav-link"
+                >Settings</a
+              >
+            </li>
+            <li role="none">
+              <a href="./about.html" role="menuitem" class="nav-link">About</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+      <!-- id="main-content" role="main"-->
+      <!-- TASK FORM SECTION -->
+      <section id="task-form-section" class="section active">
+        <div class="container">
+          <h2 id="form-heading">Add Task</h2>
+
+          <form id="task-form" class="form" novalidate>
+            <div class="form-group">
+              <label for="title">Title <span class="required">*</span></label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="title-error title-help"
+                placeholder="e.g., Submit CS Assignment"
+              />
+              <span class="help-text" id="title-help"
+                >No leading/trailing spaces</span
+              >
+              <span class="error-message" id="title-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="dueDate"
+                >Due Date <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="dueDate"
+                name="dueDate"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="dueDate-error dueDate-help"
+                placeholder="YYYY-MM-DD"
+              />
+              <span class="help-text" id="dueDate-help"
+                >Format: YYYY-MM-DD</span
+              >
+              <span
+                class="error-message"
+                id="dueDate-error"
+                role="alert"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="duration"
+                >Duration (minutes) <span class="required">*</span></label
+              >
+              <input
+                type="text"
+                id="duration"
+                name="duration"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="duration-error duration-help"
+                placeholder="e.g., 120"
+              />
+              <span class="help-text" id="duration-help"
+                >Will convert to hours automatically</span
+              >
+              <span
+                class="error-message"
+                id="duration-error"
+                role="alert"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="tag">Tag <span class="required">*</span></label>
+              <select
+                id="tag"
+                name="tag"
+                class="form-input"
+                required
+                aria-required="true"
+                aria-describedby="tag-error"
+              >
+                <option value="">-- Select Tag --</option>
+                <option value="Academic">Academic</option>
+                <option value="Social">Social</option>
+                <option value="Personal">Personal</option>
+                <option value="Extracurricular">Extracurricular</option>
+                <option value="Health">Health</option>
+              </select>
+              <span class="error-message" id="tag-error" role="alert"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="priority"
+                >Priority <span class="required">*</span></label
+              >
+              <select
+                id="priority"
+                name="priority"
+                class="form-input"
+                required
+                aria-required="true"
+              >
+                <option value="">-- Select Priority --</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+              <span
+                class="error-message"
+                id="priority-error"
+                role="alert"
+              ></span>
+            </div>
+
+            <div class="form-group">
+              <label for="location">Location (Optional)</label>
+              <input
+                type="text"
+                id="location"
+                name="location"
+                class="form-input"
+                placeholder="e.g., Library, Room 204"
+              />
+            </div>
+
+            <div class="form-actions">
+              <button type="submit" class="btn btn-primary">
+                💾 Save Task
+              </button>
+              <button type="button" class="btn btn-secondary" id="cancel-form">
+                ❌ Cancel
+              </button>
+            </div>
+
+            <div
+              id="form-status"
+              class="form-status"
+              role="status"
+              aria-live="polite"
+            ></div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer role="contentinfo">
+      <div class="container">
+        <p>&copy; 2025 Campus Life Planner. Built for students, by students.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script type="module" src="../js/app.js"></script>
+  </body>
+</html>
